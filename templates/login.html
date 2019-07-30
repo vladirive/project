@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block li_principal %}
+<li class="nav-item active">
+    <a class="btn btn-sm btn-outline-secondary" href="/nuevo_registro">Nuevo Usuario<span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages  %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor%}
+{% endif %}
+{% endwith %}
+
+<form method="POST"> 
+    
+    
+    {{ form.username.label }}
+    <dd>{{ form.username (placeholder="Nombre") }} </dd>
+
+    {% if form.username.errors %}
+    <ul>
+    {% for error in form.username.errors %}
+   <li>{{ error }}</li>  
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    {{ form.password.label }}
+    <dd>{{ form.password (placeholder="password") }} </dd>
+
+    {% if form.password.errors %}
+    <ul>
+    {% for error in form.password.errors %}
+   <li>{{ error }}</li>  
+    {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <button type="submit" >Ingresar</button>
+    
+
+</form>
+
+ 
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Reviews
+{% endblock %}
+
+{% block li_principal %}
+<li class="nav-item active">
+    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+
+{% block li %}
+{% from "macros.html" import  show_li  %}
+{{  show_li() }}
+{% endblock %}
+
+
+{% block nav %}
+{% from "macros.html" import show_logout  %}
+{{ show_logout(user) }}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Comentarios</h1>
+
+<div class="container" >
+
+        <table class="table">
+                <thead>
+                    <tr>
+                        <th>USUARIO</th>
+                        <th>COMENTARIO</th>
+                        <th>FECHA CREACION</th>
+                    </tr>
+                </thead>
+                <tbody id="listado_personal">               
+                    {% if coments %}
+                     {% for coment in coments.items %} <!-- Se concatena coments con items para que se haga iterable y poder realizar la paginacion -->
+                     <tr>
+                        <td>{{ coment.username}}</td>
+                        <td>{{ coment.text}}</td>
+                        <td>{{ date_format(coment.created_date) }}</td>           
+                     </tr>
+                      {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+</div>
+
+
+
+{% endblock %}

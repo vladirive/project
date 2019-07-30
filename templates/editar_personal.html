@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card" >
+    <h5 class="card-header" id="nav">EDITAR</h5>
+<div class="card-body">
+    <form action="/guardar_edicion/{{ personal.0 }}" method="POST">
+        <div class="form-row pb-3">
+            <div class="col">
+                <input type="text" name="cedula" class="form-control" placeholder="Cedula" value="{{ personal.1 }}">
+            </div>
+            <div class="col-5">
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="{{ personal.2 }}">
+            </div>
+            <div class="col-5">
+                <input type="text" name="cargo" class="form-control" placeholder="Cargo" value="{{ personal.3 }}">
+            </div>
+        </div>
+
+        <div class="form-row pb-3">
+            <div class="col">
+                <input type="text" name="telefono1" class="form-control" placeholder="Telefono1" value="{{ personal.4 }}">
+            </div>
+            <div class="col">
+                <input type="text" name="telefono2" class="form-control" placeholder="Telefono2" value="{{ personal.5 }}">
+            </div>
+            <div class="col">
+                <input type="text" name="correo" class="form-control" placeholder="Correo" value="{{ personal.6 }}">
+            </div>
+        </div>
+
+        <div class="form-row justify-content-center">
+            <div class="col-5"><button type="submit" class="btn btn-info btn-lg btn-block">Guardar</button></div>
+        </div>
+
+    </form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ titulo }}
+{% endblock %}
+
+{% block li_principal %}
+<li class="nav-item active">
+    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+
+
+{% block li %}
+{% from "macros.html" import  show_li  %}
+{{  show_li() }}
+{% endblock %}
+
+
+{% block nav %}
+{% from "macros.html" import show_logout  %}
+{{ show_logout(user) }}
+{% endblock %}
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages  %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor%}
+{% endif %}
+{% endwith %}
+
+<h1>INICIO</h1>
+
+{% endblock %}

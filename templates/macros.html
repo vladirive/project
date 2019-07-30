@@ -1,0 +1,42 @@
+{% macro show_logout(value) %}
+
+<div class="dropdown pull-right">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Cuenta de Usuario
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#"> <strong>{{ value }}</strong> </a>
+        <a class="dropdown-item" href="#"> Cambiar contraseña </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/logout">Cerrar Sesion</a>
+    </div>
+  </div>  
+
+{% endmacro %}
+
+{% macro show_logout_1(value) %}
+
+<div class="nav-item dropdown pull-right">
+    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Cuenta de Usuario
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <a class="dropdown-item" href="#"> <strong>{{ value }}</strong> </a>
+      <a class="dropdown-item" href="#"> Cambiar contraseña </a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="/logout">Cerrar Sesion</a>
+    </div>
+  <div>
+
+{% endmacro %}
+
+{% macro show_li() %}
+
+<li class="nav-item active">
+    <a class="nav-link" href="/coment">Coment <span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item active">
+    <a class="nav-link" href="/reviews">Reviwes <span class="sr-only">(current)</span></a>
+</li>
+
+{% endmacro %}

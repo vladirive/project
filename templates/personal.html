@@ -1,0 +1,56 @@
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages  %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor%}
+{% endif %}
+{% endwith %}
+
+<div class="card" >
+        <h5 class="card-header" id="nav">REGISTRO DE PERSONAL</h5>
+    <div class="card-body">
+        <form action="/registro_personal" method="POST">
+            <div class="form-row pb-3">
+                <div class="col">
+                    <input type="text" name="cedula" class="form-control" placeholder="Cedula">
+                </div>
+                <div class="col-5">
+                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="col-5">
+                    <input type="text" name="cargo" class="form-control" placeholder="Cargo">
+                </div>
+            </div>
+
+            <div class="form-row pb-3">
+                <div class="col">
+                    <input type="text" name="telefono1" class="form-control" placeholder="Telefono1">
+                </div>
+                <div class="col">
+                    <input type="text" name="telefono2" class="form-control" placeholder="Telefono2">
+                </div>
+                <div class="col">
+                    <input type="text" name="correo" class="form-control" placeholder="Correo">
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="col-5"><button type="submit" class="btn btn-info btn-lg btn-block">Guardar</button></div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
